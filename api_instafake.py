@@ -36,8 +36,10 @@ def get_param():
     userHasProfilPic = request.args.get('userHasProfilPic', default=0, type=int)
     userIsPrivate = request.args.get('userIsPrivate', default=0, type=int)
     usernameDigitCount = request.args.get('usernameDigitCount', default=0, type=int)
+    usernameLength = request.args.get('usernameLength', default=0, type=int)
+    
 
-    data = [[userFollowerCount, userFollowingCount, userBiographyLength, userMediaCount, userHasProfilPic, userIsPrivate, usernameDigitCount]]
+    data = [[userFollowerCount, userFollowingCount, userBiographyLength, userMediaCount, userHasProfilPic, userIsPrivate, usernameDigitCount, usernameLength]]
     model_file = 'fake_predict.sav'
     output = get_prediction(data, model_file)
     return jsonify({'result': output})
@@ -50,7 +52,7 @@ def get_prediction(data, model_file):
 
   col_names = ['userFollowerCount', 'userFollowingCount', 'userBiographyLength',
               'userMediaCount', 'userHasProfilPic', 'userIsPrivate',
-              'usernameDigitCount']
+              'usernameDigitCount', 'usernameLength']
   df_data = pd.DataFrame(data, columns=col_names)
 
   pred = loaded_model.predict(df_data)[0]
@@ -74,7 +76,7 @@ if __name__ == '__main__':
 # python api_instafake.py
 
 # now you can try this on your browser 
-# http://127.0.0.1:5000/pred?userFollowerCount=204&userFollowingCount=445&userBiographyLength=118&userMediaCount=92&userHasProfilPic=1&userIsPrivate=1&usernameDigitCount=0
+# http://127.0.0.1:5000/pred?userFollowerCount=150&userFollowingCount=149&userBiographyLength=77&userMediaCount=22&userHasProfilPic=1&userIsPrivate=0&usernameDigitCount=0&usernameLength=13
 # notice the route is followed by ?
 # use & to specify more parameters
 
