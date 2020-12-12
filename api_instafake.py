@@ -77,6 +77,9 @@ if __name__ == '__main__':
 
 # now you can try this on your browser 
 # http://127.0.0.1:5000/pred?userFollowerCount=150&userFollowingCount=149&userBiographyLength=77&userMediaCount=22&userHasProfilPic=1&userIsPrivate=0&usernameDigitCount=0&usernameLength=13
+
+# http://127.0.0.1:5000/pred?userFollowerCount=104&userFollowingCount=1423&userBiographyLength=53&userMediaCount=0&userHasProfilPic=0&userIsPrivate=0&usernameDigitCount=0&usernameLength=13
+
 # notice the route is followed by ?
 # use & to specify more parameters
 
